@@ -83,15 +83,40 @@ function animateEffect(selector, effect) {
 
 
 function voteUp(index) {
-  var number = document.getElementById("voting-number-"+index).innerHTML
   animateEffect("#voting-up-arrow-"+index, "bounce")
   $("#voting-up-arrow-"+index).css("color", "#55acee")
-  document.getElementById("voting-number-"+index).innerHTML  = parseInt(number) + 1
+
+  var number = document.getElementById("voting-number-"+index).innerHTML
+  var newVote  = parseInt(number) +1;
+
+  postList[index][0].set("ups", newVote)
+  postList[index][0].save(null, {
+    success: function(results) {
+
+    }, 
+    error: function(error) {
+      
+    }
+   })
+
+  document.getElementById("voting-number-"+index).innerHTML = newVote
 }
 function voteDown(index) {
   var number = document.getElementById("voting-number-"+index).innerHTML
-  // animateEffect("#voting-down-arrow-"+index, "bounce")
-  document.getElementById("voting-number-"+index).innerHTML  = parseInt(number) - 1
+
+  var newVote  = parseInt(number) -1;
+
+
+  document.getElementById("voting-number-"+index).innerHTML  = newVote
+  postList[index][0].set("downs", newVote)
+  postList[index][0].save(null, {
+    success: function(results) {
+
+    }, 
+    error: function(error) {
+      
+    }
+   })  
   $("#voting-down-arrow-"+index).css("color", "#55acee")
 }
 
