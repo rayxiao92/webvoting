@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>My App</title>
+        <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="css/framework7.ios.min.css">
+        <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+        <!-- Path to your custom app styles-->
+         
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    
+        <link rel="stylesheet" href="css/my-app.css">   
+        <link rel="stylesheet" href="css/animate.css"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+        <title>Node</title>
+        <script src="https://www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+    </head>
+    <body class="layout-white theme-white">
+    <!-- Status bar overlay for fullscreen mode-->
+    
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal panel-color">
+      <div class="statusbar-overlay panel-color"></div>
+      <div class="content-block">
+        <p>Left panel content goes here</p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+        <p>Right panel content goes here</p>
+      </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+      <div class="statusbar-overlay panel-color"></div>
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center sliding">
+              MEILIUER
+            </div>
+            <div class="right" onclick = "loginPopupOpen()">
+              <a href="#" class="link guest-only" onclick=""> 
+                login in 7s
+                <!-- <i class="icon icon-bars"></i> -->
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, data-page contains page name-->
+          <div id="home-page" data-page="index" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content pull-to-refresh-content">
+              <!-- <div class="content-block-title">Welcome To My Awesome App</div> -->
+  <div class="pull-to-refresh-layer ">
+    <div class="preloader"></div>
+    <div class="pull-to-refresh-arrow"></div>
+  </div>              
+              <div class="list-block " id="post-list">
+                <ul>
+                    <li class="post-unit">
+                      <div class="post-unit-textblock">
+                        <div class = "post-title">A really stupid cat</div>
+                        <div class = "post-author">hehe</div>
+                      </div>
+                      <div class = "post-voting-area">
+                        <i class="fa fa-angle-up fa-2x"></i>
+                        <div class="post-voting-text">3</div>
+                        <i class="fa fa-angle-down fa-2x"></i>
+                      </div>
+                    </li>
+                    <li class="post-unit">
+                      <div class="post-unit-textblock">
+                        <div class = "post-title">A really stupid cat</div>
+                        <div class = "post-author">hehe</div>
+                      </div>
+<!--                       <div class = "post-picture">
+                        <img src= "https://launchbit.com/carbon-i/6215-8fc4a6c294bfc89cee8a3843777b3bd0cf33cc44-bsa.png">
+                      </div> -->
+<!--                       <div class="row">
+                        <div class="col-33">
+                          <i class="fa fa-share"></i> 
+                        </div>
+                        <div class="col-33">
+                          Reply 
+                        </div>
+                        <div class="col-33">
+                           
+                        </div>                                                
+                      </div> -->
+                      <div class = "post-voting-area">
+                        <i class="fa fa-angle-up fa-2x"></i>
+                        <div class="post-voting-text">31233</div>
+                        <i class="fa fa-angle-down fa-2x"></i>
+                      </div>
+                    </li>
+                    <li class="post-unit">
+                      <div class="post-unit-textblock">
+                        <div class = "post-title">A really stupid cat</div>
+                        <div class = "post-author">hehe</div>
+                      </div>
+<!--                       <div class = "post-picture">
+                        <img src= "https://launchbit.com/carbon-i/6215-8fc4a6c294bfc89cee8a3843777b3bd0cf33cc44-bsa.png">
+                      </div> -->
+<!--                       <div class="row">
+                        <div class="col-33">
+                          <i class="fa fa-share"></i> 
+                        </div>
+                        <div class="col-33">
+                          Reply 
+                        </div>
+                        <div class="col-33">
+                           
+                        </div>                                                
+                      </div> -->
+                      <div class = "post-voting-area">
+                        <i class="fa fa-angle-up fa-2x"></i>
+                        <div class="post-voting-text">31233</div>
+                        <i class="fa fa-angle-down fa-2x"></i>
+                      </div>
+                    </li>                                                                                                                                                                            
+                </ul>
+              </div>
+              <!-- <div class="content-block-title">Side panels</div> -->
+<!--               <div class="content-block">
+                <div class="row">
+                  <div class="col-50"><a href="#" data-panel="left" class="button open-panel">Left Panel</a></div>
+                  <div class="col-50"><a href="#" data-panel="right" class="button open-panel">Right Panel</a></div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <div class="row"style="width:100%; ">
+              <div href="#" class="col-33 "  onclick = "openUrl('http://m.reddit.com', false)"><i  class="fa fa-compass "></i></div>
+              <div href="#" class="col-33 "  onclick = "addPostPopupOpen()"><i  class="fa fa-plus "></i></div>
+              <div href="#" class="col-33 "  onclick= "configPageOpen()" ><i  class="fa fa-cog "></i></div>              
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    
+
+    </div>
+    <div class="popup popup-post">
+      <div class="popup-navbar title-bar row" >
+        <!-- <div class="row"> -->
+          <div class="col-33 left" onclick = "addPostPopupClose()">
+            <a href="#" class="link icon-only" >
+              Close
+            </a>                   
+          </div>
+          <div class="col-33 center ">
+            <span >New Node</span>
+          </div>
+          <div class="col-33 right" onclick = "postLink()">
+            <a >Submit</a>
+          </div>                            
+      </div>
+      <div class="list-block">
+        <ul>
+          <!-- Text inputs -->
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">Address</div>
+                <div class="item-input">
+                  <input id = "post-address-input" type="text" placeholder="Address">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">title</div>
+                <div class="item-input">
+                  <input id = "post-title-input" type="text" placeholder="title">
+                </div>
+              </div>
+            </div>
+          </li>
+       </ul>
+      </div>
+      <div class="content-block">
+      </div>
+      <div class="list-block" >
+        <ul>
+          <!-- Text inputs -->
+          <li>
+            <div class="item-content" onclick = "pastFromClipBoard()">
+              <div class="item-inner">
+                <!-- <div class="item-title label">username</div> -->
+                <!-- <div class="item-input"> -->
+                  <a style="color:#55acee">
+                    Paste From Clipboard
+                  </a>
+                <!-- </div> -->
+              </div>
+            </div>
+          </li>          
+          <li>
+            <div class="item-content" onclick="getUrlTitle()">
+              <div class="item-inner">
+                <!-- <div class="item-title label">username</div> -->
+                <!-- <div class="item-input"> -->
+                  <a style="color:#55acee">
+                    Get Title 
+                  </a>
+                <!-- </div> -->
+              </div>
+            </div>
+          </li>
+
+       </ul>
+      </div>       
+    </div>
+    <div class="popup popup-config">
+      <div class="popup-navbar title-bar row" >
+        <!-- <div class="row"> -->
+          <div class="col-33 left" onclick = "configPopupClose()">
+            <a href="#" class="link icon-only" >
+              Close
+            </a>                   
+          </div>
+          <div class="col-33 center ">
+            <span >SETTINGS</span>
+          </div>
+          <div class="col-33 right" onclick = "updateInfo()">
+            <a >Save</a>
+          </div>                            
+      </div>
+      <div class="list-block">
+        <ul>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">nickname</div>
+                <div class="item-input">
+                  <input id = "setting-nickname-input" type="text" placeholder="nickname">
+                </div>
+              </div>
+            </div>
+          </li>
+<!--           <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">email</div>
+                <div class="item-input">
+                  <input id = "post-email-input" type="email" placeholder="email">
+                </div>
+              </div>
+            </div>
+          </li> -->
+       </ul>
+      </div>  
+      <div class="content-block">
+      </div>
+      <div class="list-block">
+        <ul>
+          <!-- Text inputs -->
+          <li>
+            <div class="item-content" onclick="logOut()">
+              <div class="item-inner">
+                <!-- <div class="item-title label">username</div> -->
+                <!-- <div class="item-input"> -->
+                  <a style="color:#55acee">
+                    Log Out 
+                  </a>
+                <!-- </div> -->
+              </div>
+            </div>
+          </li>
+
+       </ul>
+      </div>           
+    </div>
+    <div class="popup popup-login">
+      <div class="popup-navbar title-bar row" >
+        <!-- <div class="row"> -->
+          <div class="col-33 left" onclick = "loginPopupClose()">
+            <a href="#" class="link icon-only" >
+              Close
+            </a>                   
+          </div>
+          <div class="col-33 center ">
+            <span >LOGIN</span>
+          </div>
+          <div class="col-33 right" >
+            <!-- <a >Save</a> -->
+          </div>                            
+      </div>
+      <div class="list-block">
+        <ul>
+          <!-- Text inputs -->
+<!--           <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">username</div>
+                <div class="item-input">
+                  <input id = "post-username-input" type="text" placeholder="username">
+                </div>
+              </div>
+            </div>
+          </li> -->
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">email</div>
+                <div class="item-input">
+                  <input id = "post-email-input" type="email" placeholder="email">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">password</div>
+                <div class="item-input">
+                  <input id = "post-password-input" type="password" placeholder="password">
+                </div>
+              </div>
+            </div>
+          </li>          
+       </ul>
+      </div>  
+      <div class="content-block">
+      </div>
+      <div class="list-block">
+        <ul>
+          <!-- Text inputs -->
+          <li>
+            <div class="item-content" onclick="logIn()">
+              <div class="item-inner">
+                <!-- <div class="item-title label">username</div> -->
+                <!-- <div class="item-input"> -->
+                  <a style="color:#55acee">
+                    Login 
+                  </a>
+                <!-- </div> -->
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content" onclick="signUp()">
+              <div class="item-inner">
+                <!-- <div class="item-title label">username</div> -->
+                <!-- <div class="item-input"> -->
+                  <a style="color:#55acee">
+                    Sign Up 
+                  </a>
+                <!-- </div> -->
+              </div>
+            </div>
+          </li>          
+
+       </ul>
+      </div>           
+    </div>    
+
+
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- // <script type="text/javascript" src="js/index.js"></script> -->
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="js/my-app.js"></script>        
+    </body>
+</html>
